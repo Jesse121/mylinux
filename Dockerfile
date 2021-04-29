@@ -4,7 +4,7 @@ FROM centos:7
 RUN yum -y update
 # 安装基础软件
 RUN yum -y install vim epel-release openssh-server git lrzsz 
-RUN yum -y install nginx supervisor
+RUN yum -y install nginx supervisor net-tools
 
 COPY supervisord.conf /etc/supervisord.conf
 
@@ -18,6 +18,9 @@ RUN ssh-keygen -t ed25519 -f  /etc/ssh/ssh_host_ed25519_key
 
 # 变更root密码
 RUN echo "root:jesse131978"|chpasswd
+
+# 设置时区
+RUN rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 #开放窗口的端口
 EXPOSE 22 80
