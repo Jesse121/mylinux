@@ -1,11 +1,11 @@
 #生成的新镜像以centos7镜像为基础
 FROM centos:7
 
-WORKDIR /home
+WORKDIR /root
 
-COPY install.sh /home/
+COPY install.sh /root/
 
-RUN /home/install.sh
+RUN /root/install.sh
 
 COPY supervisord.conf /etc/supervisord.conf
 
