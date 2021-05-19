@@ -19,9 +19,19 @@ echo "root:jesse131978"|chpasswd;
 # 设置时区
 rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
 
+# 设置git
+git config --global user.name "Jesse";
+git config --global user.email jesse152@163.com;
+git config --global alias.st status;
+git config --global alias.co checkout;
+git config --global alias.ci commit;
+git config --global alias.br branch;
+git config --global alias.pl pull;
+git config --global alias.pu push;
+
 # 安装nodejs
 wget https://nodejs.org/dist/v14.15.1/node-v14.15.1-linux-x64.tar.gz -q;
-tar -xf node-v14.15.1-linux-x64.tar.gz && mv node-v14.15.1-linux-x64 /usr/local/node-v14.15.1-linux-x64;
+tar -xf node-v14.15.1-linux-x64.tar.gz && mv node-v14.15.1-linux-x64 /usr/local/node-v14.15.1-linux-x64 && rm -rf node-v14.15.1-linux-x64.tar.gz;
 ln -s /usr/local/node-v14.15.1-linux-x64/bin/node /usr/bin/node;
 ln -s /usr/local/node-v14.15.1-linux-x64/bin/npm /usr/bin/npm;
 ln -s /usr/local/node-v14.15.1-linux-x64/bin/npx /usr/bin/npx;
